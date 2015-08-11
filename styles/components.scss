@@ -1,0 +1,30 @@
+a.call-to-action-button {
+  display: inline-block;
+  width: auto;
+  margin: ($margin * 1.5) auto ($margin * 1.5) auto;
+  padding: $padding / 2;
+  @include set-font-size(0.7);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $color-white;
+  border: 1px solid $color-white;
+  border-radius: 8px;
+  background-color: transparent;
+  @include transition("background-color");
+  &:hover {
+    background-color: rgba($color-white, 0.1);
+    @include transition("background-color");
+  }
+}
+
+@media screen and (min-width: $screen-size-medium) {
+  a.call-to-action-button {
+    @include set-font-size(0.9);
+  }
+}
+
+.headline {
+  color: $color-white;
+  text-shadow: 1px 1px 2px $color-black;
+}
