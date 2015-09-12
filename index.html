@@ -1,133 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <title>Golden team</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Картотека</title>
+    <link rel="stylesheet" href="style/lib/normalize.css">
+    <link rel="stylesheet" href="style/main.css">
 
-    <!-- The project's stylesheet -->
-    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="js/vendor/angular.min.js"></script>
+
 </head>
-<body>
+<body ng-app="olympics">
 
-<!--
-body of content = 67% (940/1400)
-square-template = 30.85% (290/940)
--->
+<div class="page-wrapper">
+    <header class="container">
+        <div class="logo">Картотека</div>
+        <div class="menu">
+            <label for="sel-menu" class="label-menu">фильтр:</label>
+            <input type="text" class="sel-menu" id="sel-menu" ng-model="searchString" placeholder="золото, серебро или бронза">
+        </div>
+    </header>
+    <section ng-controller="MainController" class="container">
+        <div class="cards-wrapper">
+            <view ng-repeat="score in scores | searchFor:searchString" info="score"></view>
+            <!-- Здесь при открытии страницы ангуляр добавит 10 карточек со спортсменами -->
+        </div>
+    </section>
+    <div class="page-buffer"></div>
+</div>
 
-<div class="page-header">
-    <div class="container">
-        <div class="logo">golden</div>
-        <ul class="menu">
-            <li class="menu-item">home</li>
-            <li class="menu-item">services</li>
-            <li class="menu-item">portfolio</li>
-            <li class="menu-item">about</li>
-            <li class="menu-item">contact</li>
-        </ul>
-        <p>welcome to our studio</p>
-        <p>it's nice to meet you</p>
-        <button>tell me more</button>
-    </div>
-</div>
-<div class="services">
-    <div class="container">
-        <div class="cols lg-col-1">
-            <h2>Services</h2>
-            <p>Proin iaculis purus consequat sem cure.</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="">
-            <h3>E-Commerce</h3>
-            <p class="roboto-font">Proin iaculis purus consequat sem cure
-                digni ssim. Donec porttitora entum suscipit
-                aenean rhoncus posuere odio in tincidunt.</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="">
-            <h3>Responsive Web</h3>
-            <p class="roboto-font">Proin iaculis purus consequat sem cure
-                digni ssim. Donec porttitora entum suscipit
-                aenean rhoncus posuere odio in tincidunt.</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="">
-            <h3>Marketing Tools</h3>
-            <p class="roboto-font">Proin iaculis purus consequat sem cure
-                digni ssim. Donec porttitora entum suscipit
-                aenean rhoncus posuere odio in tincidunt.</p>
-        </div>
-    </div>
-</div>
-<div class="portfolio">
-    <div class="container">
-        <div class="cols lg-col-1">
-            <h2>Our portfolio</h2>
-            <p>Proin iaculis purus consequat sem cure.</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="#">
-            <h3>Ebony & Ivory</h3>
-            <p>Branding</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="#">
-            <h3>Smart Stationary </h3>
-            <p>Print Design</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="#">
-            <h3>Clever Poster</h3>
-            <p>Print Design copy</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="#">
-            <h3>Vinyl Record</h3>
-            <p>Product Mock-Up</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="#">
-            <h3>Treehouse Template</h3>
-            <p>Web Design</p>
-        </div>
-        <div class="cols lg-col-3">
-            <img src="#">
-            <h3>Burned Logo</h3>
-            <p>Branding</p>
-        </div>
+<footer>
+    <div class="text-block">&copy; пример для практического задания</div>
+</footer>
 
-    </div>
-</div>
-<div class="about">
-    <div class="container">
-        <div class="cols lg-col-1">
-            <h2>About Us</h2>
-            <p>Proin iaculis purus consequat sem cure.</p>
-        </div>
-    </div>
-</div>
-<div class="team">
-    <div class="container">
-        <div class="cols lg-col-1">
-            <h2>our amazing team</h2>
-            <p>Proin iaculis purus consequat sem cure.</p>
-        </div>
-    </div>
-</div>
-<div class="contact">
-    <div class="container">
-        <div class="cols lg-col-1">
-            <h2>Contact us</h2>
-            <p>Proin iaculis purus consequat sem cure.</p>
-        </div>
-    </div>
-</div>
-<div class="footer"></div>
+<!-------------------Scripts------------------>
 
+    <script src="js/main.js"></script>
 
+<!-- Modules -->
+    <script src="js/app.js"></script>
+
+<!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+<!-- Directives -->
+    <script src="js/directives/view.js"></script>
 </body>
 </html>
